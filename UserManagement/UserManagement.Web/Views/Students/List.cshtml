@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<UserManagement.Web.Models.Entities.Student>
+
+
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Students</h1>
+        <a class="btn btn-primary" asp-controller="Students" asp-action="Add" >Add New</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile No.</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Phone</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
